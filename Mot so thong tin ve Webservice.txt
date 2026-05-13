@@ -1,0 +1,74 @@
+
+
+
+URI = Uniform Resource Identifier (Định danh tài nguyên đồng bộ)
+
+URI = URL + URN
+	URL: Uniform Resource Locator (địa chỉ trang web)
+	URN: Uniform Resource Name (Tên tài nguyên đồng)
+	
+	
+	http://localhost:8080/products
+		-> Get: get all
+		-> Post: insert (RequestBody)
+		
+	http://localhost:8080/products/1
+		-> PUT (RequestBody)
+	
+	http://localhost:8080/products/1
+		-> DELETE
+Dữ liệu webservices trả về:
+	ResponseEntity<?>
+	ResponseEntity<List<Product>>
+	ResponseEntity<String>
+	ResponseEntity<Product>
+
+
+Chuẩn:
+	http://192.255.15.47:8080/api/v1/products
+
+@GET
+@POST
+@PUT
+@DELETE
+@PATCH
+
+
+Code first: Tạo các entity map với các bảng trong database
+Chạy chương trình sẽ tạo ra database
+
+Database first: Tạo sẵn database rồi mới tạo các class map với các bảng
+
+Class map với bảng gọi là: ORM (Object Relation Mapping)
+
+Class ORM được tạo bởi các annotation
+- @Entity
+- @Table(name="ten_trong_database")
+- @Id  -> Tương khóa chính
+- @Column(name="ten_cot_trong_database",nullable=false,unique=true)
+  private String categoryName;
+- @OneToMany(mapppedBy="...")
+- @ManyToOne
+- @ManyToMany
+
+
+
+
+
+Cấu hình 1 servlet trong file web.xml
+<servlet>
+	<serlvet-name>InsertStudent</serlvet-name>
+	<servlet-class>ra.edu.stu.InsertStudent</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>InsertStudent</serlvet-name>
+	<url-pattern>/</url-pattern>
+</servlet-mapping>
+
+
+-> Sử dụng annotation:
+@WebServlet("InsertStudent")
+public class InsertStudent{
+	...
+}

@@ -1,0 +1,22 @@
+
+1. Tạo project và add vào các thư viện cần thiết:
+	- Spring boot dev tool
+	- Loombok
+	- Web
+	- Spring Data JPA
+	- Postgres sql driver
+
+2. Cấu hình trong file application.properties
+3. Tạo cấu trúc phân lớp của project:
+	+ model:
+		- entity
+		+ dto:
+			- request
+			- response
+	+ repository:
+		1 giao diện kế thừa JPARepository<Tên_ORM, Kiểu_DL_khóa_chính>{}
+		đánh dấu là: @Repository
+	+ service:
+		- 1 interface
+		- 1 class implements (đánh dấu bằng @Service)
+	+ controller
